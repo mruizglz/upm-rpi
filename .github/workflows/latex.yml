@@ -52,12 +52,12 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: UPMRPI-Presentation.pdf
-          path: embeddedlinux.pdf
+          path: UPMRPI-Presentation.pdf
           
       - uses: actions/upload-artifact@v4 
         with:
           name: UPMRPI-Introduction.pdf
-          path: embeddedlinux.log  
+          path: UPMRPI-Introduction.log  
           
       - name: Delete Release
         run:
