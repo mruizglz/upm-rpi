@@ -57,7 +57,7 @@ jobs:
       - uses: actions/upload-artifact@v4 
         with:
           name: UPMRPI-Introduction.pdf
-          path: UPMRPI-Introduction.log  
+          path: UPMRPI-Introduction.pdf  
           
       - name: Delete Release
         run:
@@ -83,8 +83,18 @@ jobs:
         uses: actions/upload-release-asset@v1 
         with: 
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
-          asset_path: embeddedlinux.pdf 
-          asset_name: UPM-RPI-embeddedLinux.pdf 
+          asset_path: UPMRPI-Introduction.pdf 
+          asset_name: UPMRPI-Introduction.pdf 
+          asset_content_type: application/pdf
+        env: 
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+           
+      - name: Upload Release Asset 
+        uses: actions/upload-release-asset@v1 
+        with: 
+          upload_url: ${{ steps.create_release.outputs.upload_url }} 
+          asset_path: UPMRPI-Presentation.pdf 
+          asset_name: UPMRPI-Presentation.pdf 
           asset_content_type: application/pdf
         env: 
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
