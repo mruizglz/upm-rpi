@@ -49,6 +49,29 @@ jobs:
           args: -pdf -shell-escape -f
           # The working directory for the latex compiler to be invoked
           working_directory: .   
+
+      - name: LaTeX compilation III
+        # You may pin to the exact commit or the version.
+        # uses: dante-ev/latex-action@49cf7cb5f79e7b2006dbdffea85e02bec0b6244b
+        uses: dante-ev/latex-action@2021-A
+        with:
+          # The root LaTeX file to be compiled
+          root_file: UPMRPI-git-I.tex
+          args: -pdf -shell-escape -f
+          # The working directory for the latex compiler to be invoked
+          working_directory: .  
+
+       - name: LaTeX compilation IV
+        # You may pin to the exact commit or the version.
+        # uses: dante-ev/latex-action@49cf7cb5f79e7b2006dbdffea85e02bec0b6244b
+        uses: dante-ev/latex-action@2021-A
+        with:
+          # The root LaTeX file to be compiled
+          root_file: UPMRPI-git-collaborative.tex
+          args: -pdf -shell-escape -f
+          # The working directory for the latex compiler to be invoked
+          working_directory: .
+          
       - uses: actions/upload-artifact@v4
         with:
           name: UPMRPI-Presentation.pdf
@@ -57,7 +80,17 @@ jobs:
       - uses: actions/upload-artifact@v4 
         with:
           name: UPMRPI-Introduction.pdf
-          path: UPMRPI-Introduction.pdf  
+          path: UPMRPI-Introduction.pdf
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: UPMRPI-git-I.pdf
+          path: UPMRPI-git-I.pdf
+          
+      - uses: actions/upload-artifact@v4 
+        with:
+          name: UPMRPI-git-collaborative.pdf
+          path: UPMRPI-git-collaborative.pdf
           
       - name: Delete Release
         run:
@@ -79,7 +112,7 @@ jobs:
         env: 
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}        
            
-      - name: Upload Release Asset 
+      - name: Upload Release Asset I
         uses: actions/upload-release-asset@v1 
         with: 
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
@@ -89,12 +122,32 @@ jobs:
         env: 
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
            
-      - name: Upload Release Asset 
+      - name: Upload Release Asset II
         uses: actions/upload-release-asset@v1 
         with: 
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
           asset_path: UPMRPI-Presentation.pdf 
           asset_name: UPMRPI-Presentation.pdf 
+          asset_content_type: application/pdf
+        env: 
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Release Asset II
+        uses: actions/upload-release-asset@v1 
+        with: 
+          upload_url: ${{ steps.create_release.outputs.upload_url }} 
+          asset_path: UPMRPI-git-I.pdf 
+          asset_name: UPMRPI-git-I.pdf 
+          asset_content_type: application/pdf
+        env: 
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Release Asset II
+        uses: actions/upload-release-asset@v1 
+        with: 
+          upload_url: ${{ steps.create_release.outputs.upload_url }} 
+          asset_path: UPMRPI-git-collaborative.pdf 
+          asset_name: UPMRPI-git-collaborative.pdf 
           asset_content_type: application/pdf
         env: 
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
