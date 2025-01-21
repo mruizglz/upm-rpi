@@ -36,16 +36,18 @@
       \item Supports multiple, concurrent lines of development.
     \end{itemize}
     \item Hosting platforms: Bitbucket, GitLab, GitHub.
+    \includegraphics[width=0.5\linewidth]{trainingmaterials/git-I/giticon.pdf}
   \end{itemize}
 \end{frame}
 
 % Slide: Git Basic Concepts
-\section{Git Basic Concepts}
+
 \begin{frame}{Git Basic Concepts}
   \begin{itemize}
     \item Repository:
     \begin{itemize}
       \item Container of the project files and versions.
+      \item Contains the multiple versions of each file
     \end{itemize}
     \item Remote Repository:
     \begin{itemize}
@@ -53,18 +55,24 @@
     \end{itemize}
     \item Local Repository:
     \begin{itemize}
-      \item Developers clone a copy of the remote repository.
-      \item Changes are committed locally and pushed to the remote repository.
+      \item Developers clone a copy of the remote repository (git clone)
+      \item Changes are committed locally and pushed to the remote repository (git add and git commit)
+      \item Changes are pushed to remote repos (git push)
+      \item Changes are pulled from remote repos (git pull)
     \end{itemize}
   \end{itemize}
 \end{frame}
 
+\begin{frame}{Git Basic Concepts II}
+    \centering
+    \includegraphics[width=0.5\linewidth]{trainingmaterials/git-I/gitflow.pdf }
+\end{frame}
 % Slide: Creating a Repository
-\section{Creating a Repository}
+
 \begin{frame}{Creating a Repository}
   \begin{enumerate}
     \item Create an account at \href{https://bitbucket.org}{Bitbucket.org} using your UPM email.
-    \item Create a repository named \textit{<NameInitial><LastName>\_ESD} (e.g., \textit{mruiz\_ESD}).
+    \item Create a repository named \textit{NameInitialLastName\_ESD} (e.g., \textit{mruiz\_ESD}).
     \item Set project to \textbf{ESD}.
     \item Add instructors with read access:
     \begin{itemize}
@@ -75,10 +83,10 @@
 \end{frame}
 
 % Slide: Setting Up a Workspace
-\section{Setting Up a Workspace}
+
 \begin{frame}{Setting Up a Workspace}
   \begin{enumerate}
-    \item Install Git from \href{https://git-scm.com/downloads}{git-scm.com/downloads}.
+    \item Install Git from \href{https://git-scm.com/downloads}{git-scm.com/downloads}. For example in Ubuntu: sudo apt install git
     \item Clone the repository:
     \begin{itemize}
       \item Command: \texttt{git clone <repository URL>}.
@@ -114,4 +122,3 @@
   \end{itemize}
 \end{frame}
 
-\end{document}
