@@ -94,7 +94,7 @@ jobs:
           
       - name: Delete Release
         run:
-           gh release delete 1.0 --cleanup-tag --yes
+           gh release delete 1 --cleanup-tag --yes
           
         env: 
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
@@ -108,7 +108,7 @@ jobs:
              draft: false 
              prerelease: false 
              body: | 
-                Release notes for 1.0: This pesentation always contains the last version of the slides
+                Release notes for 1.0: This presentation always contains the last version of the slides
         env: 
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}        
            
