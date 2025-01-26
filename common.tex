@@ -34,10 +34,10 @@
 %\usepackage{enumitem}
 \usepackage{tikz}
 \usepackage{bm}
-\usepackage{listings}
 \usepackage{minted}
 \usepackage{xcolor}
 \usepackage{subcaption}
+\usepackage{listings}
 \usepackage{hyperref} %always the last to avoid problems
 
 
@@ -86,3 +86,16 @@
 \newcommand\kdochtml[1]{\href{https://www.kernel.org/doc/html/latest/#1.html}{\codelink{#1}}}
 \newcommand\kdochtmldir[1]{\href{https://www.kernel.org/doc/html/latest/#1/}{\codelink{#1/}}}
 \newcommand{\training}{linux-kernel}
+
+\lstset{
+  language=C,
+  frame=single, % Adds a frame around the code
+  basicstyle=\ttfamily, % Typewriter font
+  keywordstyle=\color{blue}, % Keywords in blue
+  commentstyle=\color{green}, % Comments in green
+  stringstyle=\color{red}, % Strings in red
+  numbers=left, % Line numbers on the left
+  numberstyle=\tiny\color{gray}, % Line number style
+  breaklines=true, % Line breaking
+  %backgroundcolor=\color{lightgray!20} % Background color
+}
