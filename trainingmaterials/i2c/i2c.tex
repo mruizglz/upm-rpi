@@ -4,23 +4,26 @@
     \begin{itemize}
         \item Designed by Philips in 1982 (physical level).
         \item SMBUS created by Intel in 1995; adds timing, protocols, and operation modes to I2C.
-        \item Uses two bidirectional open-drain lines:
+        \item Uses two bidirectional open-drain lines (which need Pull-up's resistors):
         \begin{itemize}
             \item Serial Data Line (SDA)
             \item Serial Clock Line (SCL)
         \end{itemize}
         \item Typical voltages: +5 V or +3.3 V.
-        \item Defines basic types of messages:
+        \item Defines basic types of messages (using the digital signals):
         \begin{itemize}
             \item Master writes data to a slave.
             \item Master reads data from a slave.
             \item Combined messages with at least two reads/writes.
+            \item[\hspace{1em}] \includegraphics[width=0.5\textwidth]{trainingmaterials/i2c/i2cbasic.jpg}
         \end{itemize}
     \end{itemize}
 \end{frame}
 
-\begin{frame}{I2C Applications}
+\begin{frame}{I2C Overview II}
     \begin{itemize}
+        \item Any given slave will only respond to certain messages, as specified in its product documentation
+        \item In practice, most slaves adopt request/response control models, where one or more bytes following a write command are treated as a command or address.
         \item Appropriate for peripherals where simplicity and low manufacturing cost are more important than speed.
         \item Common applications:
         \begin{itemize}
@@ -33,7 +36,6 @@
     \end{itemize}
 \end{frame}
 
-\section{I2C Protocol}
 \begin{frame}{I2C Protocol}
     \begin{itemize}
         \item Communications are always started by the master.
@@ -46,6 +48,18 @@
             \item Data bytes written by master or slave.
             \item Stop condition: SDA rising edge on SCL high.
         \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{I2C Protocol II: Signal messaging}
+    \begin{itemize}
+        \includegraphics[width=\textwidth]{trainingmaterials/i2c/i2c-signals.jpg}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{I2C Protocol III: Logic analyzer}
+    \begin{itemize}
+        \includegraphics[width=0.9\textwidth]{trainingmaterials/i2c/i2c-signal-logic-analyzer.jpg}
     \end{itemize}
 \end{frame}
 
