@@ -53,13 +53,13 @@
 
 \begin{frame}{I2C Protocol II: Signal messaging}
     \begin{itemize}
-        \includegraphics[width=\textwidth]{trainingmaterials/i2c/i2c-signals.jpg}
+        \item \includegraphics[width=\textwidth]{trainingmaterials/i2c/i2c-signals.jpg}
     \end{itemize}
 \end{frame}
 
 \begin{frame}{I2C Protocol III: Logic analyzer}
     \begin{itemize}
-        \includegraphics[width=0.9\textwidth]{trainingmaterials/i2c/i2c-signal-logic-analyzer.jpg}
+        \item \includegraphics[width=0.9\textwidth]{trainingmaterials/i2c/i2c-signal-logic-analyzer.jpg}
     \end{itemize}
 \end{frame}
 
@@ -146,10 +146,19 @@ close (fd);
 
 \end{frame}
 
+\begin{frame}{Linux realted questions}
+    \begin{itemize}
+        \item What is a file descriptor?
+        \item Are file descriptors unique for a file?
+        \item Can you have multiple file descriptors for a single file? What is the purpose of this?
+    \end{itemize}    
+\end{frame}
+
 
 \section{MPU-6050 Overview}
 \begin{frame}{MPU-6050 Features}
     \begin{itemize}
+        \item Sensor with I2C interface
         \item \textbf{Accelerometer:}
         \begin{itemize}
             \item Digital-output triple-axis accelerometer.
@@ -162,8 +171,14 @@ close (fd);
             \item Full-scale range: ±250, ±500, ±1000, ±2000°/sec.
             \item Integrated 16-bit ADCs for simultaneous sampling.
         \end{itemize}
+        \item \includegraphics[width=0.4\textwidth]{trainingmaterials/i2c/mpu6050.jpg}
     \end{itemize}
 \end{frame}
+
+\begin{frame}{MPU6050 Block Diagram}
+    \includegraphics[width=0.95\textwidth]{trainingmaterials/i2c/Block-Diagram-of-MPU6050.jpg}
+\end{frame}
+
 
 \section{Project Structure}
 \begin{frame}{Structure for Project 1}
@@ -171,7 +186,7 @@ close (fd);
     \begin{itemize}
         \item Read input parameters.
         \item Display welcome message.
-        \item Open sensor handler and configure it.
+        \item Open the sensor handler and configure it.
     \end{itemize}
     \textbf{System Operation:}
     \begin{itemize}
@@ -179,9 +194,9 @@ close (fd);
         \item Loop through:
         \begin{itemize}
             \item Sample sensor data.
-            \item Transform data to engineering units.
+            \item Transform data into engineering units.
             \item Control sample frequency.
-            \item Detect end condition.
+            \item Detect the end condition.
         \end{itemize}
     \end{itemize}
     \textbf{System Closure:}
