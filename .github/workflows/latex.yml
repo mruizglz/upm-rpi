@@ -71,6 +71,18 @@ jobs:
           args: -pdf -shell-escape -f
           # The working directory for the latex compiler to be invoked
           working_directory: .
+
+      - name: LaTeX compilation V
+        # You may pin to the exact commit or the version.
+        # uses: dante-ev/latex-action@49cf7cb5f79e7b2006dbdffea85e02bec0b6244b
+        uses: dante-ev/latex-action@2021-A
+        with:
+          # The root LaTeX file to be compiled
+          root_file: UPMRPI-i2c.tex
+          args: -pdf -shell-escape -f
+          # The working directory for the latex compiler to be invoked
+          working_directory: .
+
           
       - uses: actions/upload-artifact@v4
         with:
@@ -91,6 +103,12 @@ jobs:
         with:
           name: UPMRPI-git-collaborative.pdf
           path: UPMRPI-git-collaborative.pdf
+
+
+      - uses: actions/upload-artifact@v4 
+        with:
+          name: UPMRPI-i2c.pdf
+          path: UPMRPI-i2c.pdf
           
       - name: Delete Release
         run:
@@ -148,6 +166,16 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
           asset_path: UPMRPI-git-collaborative.pdf 
           asset_name: UPMRPI-git-collaborative.pdf 
+          asset_content_type: application/pdf
+        env: 
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+           
+      - name: Upload Release Asset V
+        uses: actions/upload-release-asset@v1 
+        with: 
+          upload_url: ${{ steps.create_release.outputs.upload_url }} 
+          asset_path: UPMRPI-i2c.pdf 
+          asset_name: UPMRPI-i2c.pdf 
           asset_content_type: application/pdf
         env: 
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
