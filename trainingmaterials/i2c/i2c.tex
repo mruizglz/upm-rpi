@@ -10,10 +10,9 @@
             \item Serial Clock Line (SCL)
         \end{itemize}
         \item Typical voltages: +5 V or +3.3 V.
-        \item Defines basic types of messages (using the digital signals):
-        \begin{itemize}
-            \item Master writes data to a slave.
-            \item Master reads data from a slave.
+        \item Defines the basic types of messages (using digital signals): \begin{itemize}
+            \item The master writes data to a slave.
+            \item The master reads data from a slave.
             \item Combined messages with at least two reads/writes.
             \item[\hspace{1em}] \includegraphics[width=0.5\textwidth]{trainingmaterials/i2c/i2cbasic.jpg}
         \end{itemize}
@@ -28,10 +27,10 @@
         \item Common applications:
         \begin{itemize}
             \item Reading configuration data from memory sticks (e.g., DDR SDRAM).
-            \item Accessing NVRAM chips for user settings.
+            \item Access to NVRAM chips for user settings.
             \item Controlling OLED/LCD displays.
             \item Reading real-time clocks and hardware monitors.
-            \item Turning power supply on/off for system components.
+            \item Turning on/off power supply for system components.
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -52,15 +51,11 @@
 \end{frame}
 
 \begin{frame}{I2C Protocol II: Signal messaging}
-    \begin{itemize}
-        \item \includegraphics[width=\textwidth]{trainingmaterials/i2c/i2c-signals.jpg}
-    \end{itemize}
+        \includegraphics[width=0.8\textwidth]{trainingmaterials/i2c/i2c-signals.jpg}
 \end{frame}
 
 \begin{frame}{I2C Protocol III: Logic analyzer}
-    \begin{itemize}
-        \item \includegraphics[width=0.9\textwidth]{trainingmaterials/i2c/i2c-signal-logic-analyzer.jpg}
-    \end{itemize}
+        \includegraphics[width=0.9\textwidth]{trainingmaterials/i2c/i2c-signal-logic-analyzer.jpg}
 \end{frame}
 
 \section{I2C in Linux}
@@ -180,20 +175,20 @@ close (fd);
 \end{frame}
 
 
-\section{Project Structure}
-\begin{frame}{Structure for Project 1}
+\section{Project I}
+\begin{frame}{Structure for Project I}
     \textbf{System Initialization:}
     \begin{itemize}
-        \item Read input parameters.
+        \item Read the input parameters.
         \item Display welcome message.
         \item Open the sensor handler and configure it.
     \end{itemize}
     \textbf{System Operation:}
     \begin{itemize}
-        \item Activate sensor.
+        \item Activate the sensor.
         \item Loop through:
         \begin{itemize}
-            \item Sample sensor data.
+            \item Sensor data sample.
             \item Transform data into engineering units.
             \item Control sample frequency.
             \item Detect the end condition.
