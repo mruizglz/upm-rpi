@@ -29,6 +29,9 @@
         \item \textbf{Feature branches}: Each task/feature is developed in a separate branch.
       \end{itemize}
   \end{itemize}
+  
+  \centering
+  \includegraphics[width=0.5\linewidth]{trainingmaterials/git-II/rpi_upm.branches.png }
 \end{frame}
 
 \begin{frame}{Using Branches}
@@ -49,7 +52,25 @@
       \begin{itemize}
         \item \texttt{git status}
       \end{itemize}
+    \item Useful command to check the history of a branch:
+      \begin{itemize}
+        \item \texttt{git log}
+      \end{itemize}
   \end{itemize}
+\end{frame}
+
+\begin{frame}{Using Branches Example}
+  \centering
+  \includegraphics[width=0.75\linewidth]{trainingmaterials/git-II/git_status_main.png}
+  \includegraphics[width=0.75\linewidth]{trainingmaterials/git-II/git_log_main.png}
+  \includegraphics[width=0.75\linewidth]{trainingmaterials/git-II/git_new_branch_devel.png}
+\end{frame}
+
+
+\begin{frame}{Using Branches Example II}
+  \centering
+  \includegraphics[width=0.75\linewidth]{trainingmaterials/git-II/git_new_branch_feature1.png}
+  \includegraphics[width=0.75\linewidth]{trainingmaterials/git-II/git_log_feature.png}
 \end{frame}
 
 \section{Merging and Conflict Resolution}
@@ -64,6 +85,9 @@
             \item Merge your branch into \texttt{devel}: \texttt{git merge <branch\_name>}
       \end{enumerate}
   \end{itemize}
+  
+  \centering
+  \includegraphics[width=0.75\linewidth]{trainingmaterials/git-II/git_merge_conflict.png}
 \end{frame}
 
 \begin{frame}{Handling Conflicts}
@@ -72,6 +96,13 @@
       \begin{itemize}
         \item Different developers make changes in the same place of a document.
       \end{itemize}
+  \end{itemize}
+  \centering
+  \includegraphics[width=0.5\linewidth]{trainingmaterials/git-II/conflict.png}
+\end{frame}
+
+\begin{frame}{Handling Conflicts II}
+  \begin{itemize}
     \item To resolve conflicts:
       \begin{enumerate}
         \item Install \texttt{meld}.
@@ -85,8 +116,9 @@
         \item Save, commit, and push the resolved changes.
       \end{enumerate}
   \end{itemize}
+  \centering
+  \includegraphics[width=1\linewidth]{trainingmaterials/git-II/meld.png}
 \end{frame}
-
 
 \begin{frame}{Best Practices}
   \begin{itemize}
@@ -157,3 +189,4 @@
    \end{itemize}
 \end{frame}
  
+
