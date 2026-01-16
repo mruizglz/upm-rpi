@@ -533,64 +533,64 @@ designed for acceleration workloads.
 \end{itemize}
 \end{frame}
 
-% ---------------- Updated decision flow slide ----------------
-\begin{frame}{OS/Platform decision flow (simple)}
-\begin{columns}[T,onlytextwidth]
-  \begin{column}{0.55\textwidth}
-    \begin{enumerate}
-      \item \textbf{Need Linux apps/UI/containers?} $\rightarrow$ Linux (SBC or SoM)
-      \item Else \textbf{hard real-time / many concurrent features?} $\rightarrow$ MCU + RTOS
-      \item Else \textbf{simple + ultra-low power + low cost?} $\rightarrow$ Bare metal MCU
-      \item \textbf{Need strict throughput/latency or custom I/O?} $\rightarrow$ FPGA / SoC-FPGA / ACAP
-    \end{enumerate}
-  \end{column}
-  \begin{column}{0.45\textwidth}
-    \centering
-    \includesvg[width=\linewidth]{figures/decision_flow_fpga_acap}
-    \vspace{0.3em}
-    {\scriptsize Includes acceleration path.}
-  \end{column}
-\end{columns}
-\end{frame}
+% % ---------------- Updated decision flow slide ----------------
+% \begin{frame}{OS/Platform decision flow (simple)}
+% \begin{columns}[T,onlytextwidth]
+%   \begin{column}{0.55\textwidth}
+%     \begin{enumerate}
+%       \item \textbf{Need Linux apps/UI/containers?} $\rightarrow$ Linux (SBC or SoM)
+%       \item Else \textbf{hard real-time / many concurrent features?} $\rightarrow$ MCU + RTOS
+%       \item Else \textbf{simple + ultra-low power + low cost?} $\rightarrow$ Bare metal MCU
+%       \item \textbf{Need strict throughput/latency or custom I/O?} $\rightarrow$ FPGA / SoC-FPGA / ACAP
+%     \end{enumerate}
+%   \end{column}
+%   \begin{column}{0.45\textwidth}
+%     \centering
+%     \includesvg[width=\linewidth]{figures/decision_flow_fpga_acap}
+%     \vspace{0.3em}
+%     {\scriptsize Includes acceleration path.}
+%   \end{column}
+% \end{columns}
+% \end{frame}
 
-% ---------------- Slide: Where acceleration fits ----------------
-\begin{frame}{Where FPGA/SoC-FPGA/ACAP fit (data plane vs control plane)}
-\centering
-\includesvg[width=0.92\linewidth]{figures/control_data_plane_fpga_acap}
-\vspace{0.4em}
+% % ---------------- Slide: Where acceleration fits ----------------
+% \begin{frame}{Where FPGA/SoC-FPGA/ACAP fit (data plane vs control plane)}
+% \centering
+% \includesvg[width=0.92\linewidth]{figures/control_data_plane_fpga_acap}
+% \vspace{0.4em}
 
-{\scriptsize Typical split: CPU runs orchestration; fabric/engines run the high-rate pipeline.}
-\end{frame}
+% {\scriptsize Typical split: CPU runs orchestration; fabric/engines run the high-rate pipeline.}
+% \end{frame}
 
-% ---------------- Slide  (architecture patterns updated) ----------------
-\begin{frame}{Architecture patterns (how you build it)}
-\begin{columns}[T,onlytextwidth]
-  \begin{column}{0.55\textwidth}
-    \begin{itemize}
-      \item \textbf{Monolith firmware} (small MCU projects)
-      \item \textbf{Layered HAL + drivers + services} (scales better)
-      \item \textbf{RTOS tasks + message queues} (modular + testable)
-      \item \textbf{Linux: services + IPC + OTA pipeline} (maintainable fleets)
-      \item \textbf{CPU control plane + accelerated data plane} (FPGA/ACAP designs)
-    \end{itemize}
-  \end{column}
-  \begin{column}{0.45\textwidth}
-    \centering
-    \includesvg[width=\linewidth]{figures/architecture_patterns_fpga_acap}
-    \vspace{0.3em}
-    {\scriptsize Adds accelerated pipeline pattern.}
-  \end{column}
-\end{columns}
-\end{frame}
+% % ---------------- Slide  (architecture patterns updated) ----------------
+% \begin{frame}{Architecture patterns (how you build it)}
+% \begin{columns}[T,onlytextwidth]
+%   \begin{column}{0.55\textwidth}
+%     \begin{itemize}
+%       \item \textbf{Monolith firmware} (small MCU projects)
+%       \item \textbf{Layered HAL + drivers + services} (scales better)
+%       \item \textbf{RTOS tasks + message queues} (modular + testable)
+%       \item \textbf{Linux: services + IPC + OTA pipeline} (maintainable fleets)
+%       \item \textbf{CPU control plane + accelerated data plane} (FPGA/ACAP designs)
+%     \end{itemize}
+%   \end{column}
+%   \begin{column}{0.45\textwidth}
+%     \centering
+%     \includesvg[width=\linewidth]{figures/architecture_patterns_fpga_acap}
+%     \vspace{0.3em}
+%     {\scriptsize Adds accelerated pipeline pattern.}
+%   \end{column}
+% \end{columns}
+% \end{frame}
 
-% ---------------- Slide ----------------
-\begin{frame}{Risk checklist (what bites later)}
-\begin{itemize}
-  \item Component lifecycle \& second sources
-  \item OTA strategy and secure boot
-  \item Regulatory/certification for radio
-  \item Debug/telemetry in the field
-  \item Production test strategy (fixtures, flashing, calibration)
-  \item \textbf{FPGA/ACAP-specific:} verification, timing closure, bitstream security, field updates
-\end{itemize}
-\end{frame}
+% % ---------------- Slide ----------------
+% \begin{frame}{Risk checklist (what bites later)}
+% \begin{itemize}
+%   \item Component lifecycle \& second sources
+%   \item OTA strategy and secure boot
+%   \item Regulatory/certification for radio
+%   \item Debug/telemetry in the field
+%   \item Production test strategy (fixtures, flashing, calibration)
+%   \item \textbf{FPGA/ACAP-specific:} verification, timing closure, bitstream security, field updates
+% \end{itemize}
+% \end{frame}
