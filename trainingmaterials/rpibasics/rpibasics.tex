@@ -1,12 +1,13 @@
+
 % History and Goals Slide
 \section{History and Goals}
 \begin{frame}{History and Goals}
   \begin{itemize}
-    \item Project started in 2006 to inspire children and improve computing skills.
-    \item Inspired by the BBC Micro project from 1981.
-    \item Official launch: February 29, 2012, with 10,000 boards in the first run.
-    \item By 2021: Over 40 million units sold, primarily manufactured in Wales.
-    \item Third best-selling general-purpose computer after PC and Mac.
+    \item The project started in 2006 to inspire children and improve their computing skills.
+    \item It was inspired by the BBC Micro project from 1981.
+    \item The official launch was on February 29, 2012, with 10,000 boards in the first run.
+    \item By 2024, over 60 million units had been sold, primarily manufactured in Wales.
+    \item It is the third-best-selling general-purpose computer, after the PC and the Mac.
   \end{itemize}
 \end{frame}
 
@@ -120,6 +121,35 @@
   \end{center}
   \end{column}
  \end{columns}
+\end{frame}
+
+
+% ---------------- Slide 2 ----------------
+\begin{frame}{What ``embedded'' can mean (spectrum)}
+\begin{itemize}
+  \item \textbf{Ultra-low power control:} coin-cell sensors, simple I/O
+  \item \textbf{Connected IoT:} Wi-Fi/BLE + cloud, security updates
+  \item \textbf{Real-time control:} motor control, deterministic timing
+  \item \textbf{Compute-heavy edge:} vision/AI, multimedia, gateways
+  \item \textbf{Hardware-accelerated edge:} high-speed I/O, low-latency pipelines
+  \item \centering \includegraphics[width=12cm]{trainingmaterials/rpibasics/use_case_spectrum.jpg}
+\end{itemize}
+\end{frame}
+
+
+
+
+% ---------------- Slide 3 ----------------
+\begin{frame}{Key decision criteria}
+\begin{itemize}
+  \item \textbf{Real-time needs:} hard/soft deadlines, jitter tolerance
+  \item \textbf{Power budget:} sleep current, duty cycle, battery life
+  \item \textbf{Connectivity:} BLE/Wi-Fi/Ethernet/Cellular, certifications
+  \item \textbf{Cost \& BOM:} unit cost, availability, supply chain risk
+  \item \textbf{Security \& updates:} secure boot, OTA, long-term patching
+  \item \textbf{Time-to-market:} dev tools, ecosystem, reference designs
+  \item \textbf{Throughput/latency:} sensor rates, DMA, bandwidth, deterministic pipelines
+\end{itemize}
 \end{frame}
 
 % Design Constraints Slide
@@ -306,5 +336,261 @@
     \item Identify the steps to compile a program in GNU/Linux using gcc and g++
     \item What is the purpose of glibc library in GNU/Linux?
     \item What is the utility to debug C/C++ applications with GNU tools? 
+\end{itemize}
+\end{frame}
+
+
+
+
+
+
+% ---------------- Slide 4 ----------------
+\begin{frame}{Alternative \#1: Bare-metal microcontroller (MCU)}
+\textbf{What it is:} Firmware directly on MCU, no OS
+\vspace{0.6em}
+
+\textbf{Pros}
+\begin{itemize}
+  \item Lowest cost/power, fast boot
+  \item Simple stack, predictable behavior
+\end{itemize}
+
+\textbf{Cons}
+\begin{itemize}
+  \item Complexity grows fast (timers, comms, features)
+  \item Harder to maintain at scale
+\end{itemize}
+
+\textbf{Use when:} simple control logic, strict power, minimal features.
+\end{frame}
+
+% ---------------- Slide 5 ----------------
+\begin{frame}{Alternative \#2: MCU + RTOS}
+\textbf{RTOS options often considered:}
+\begin{itemize}
+  \item FreeRTOS
+  \item Zephyr
+  \item ThreadX / Azure RTOS
+\end{itemize}
+
+\textbf{Pros}
+\begin{itemize}
+  \item Better structure (tasks, queues), real-time scheduling
+  \item Scales to moderate complexity
+\end{itemize}
+
+\textbf{Cons}
+\begin{itemize}
+  \item More learning curve, debugging concurrency
+  \item Still resource-constrained vs Linux
+\end{itemize}
+\end{frame}
+
+% ---------------- Slide 6 ----------------
+\begin{frame}{Alternative \#3: Embedded Linux on MPU/SoC}
+\textbf{What it is:} Linux on a microprocessor/SoC (often ARM)
+\vspace{0.6em}
+
+\textbf{Pros}
+\begin{itemize}
+  \item Rich networking, security tooling, filesystems, containers
+  \item Faster feature development (Python, Go, etc.)
+\end{itemize}
+
+\textbf{Cons}
+\begin{itemize}
+  \item More power, slower boot
+  \item More complexity (kernel, drivers, build systems)
+\end{itemize}
+
+\textbf{Use when:} UI, gateways, heavy networking, complex updates.
+\end{frame}
+
+% ---------------- Slide 7 ----------------
+\begin{frame}{Alternative \#4: Single-Board Computer (SBC)}
+\textbf{Mindset:} ``ready-to-run Linux board''
+\vspace{0.6em}
+
+\textbf{Pros}
+\begin{itemize}
+  \item Fast prototyping, lots of I/O and community support
+  \item Lower NRE initially
+\end{itemize}
+
+\textbf{Cons}
+\begin{itemize}
+  \item Not always product-friendly (size, connectors, lifecycle)
+  \item Supply chain variability
+\end{itemize}
+
+\textbf{Common for:} prototypes, pilots, internal tools.
+\end{frame}
+
+% ---------------- Slide 8 ----------------
+\begin{frame}{Alternative \#5: System-on-Module (SoM) + custom carrier}
+\textbf{What it is:} compute module + your custom carrier board
+\vspace{0.6em}
+
+\textbf{Pros}
+\begin{itemize}
+  \item Speeds hardware design while keeping product-ready custom I/O
+  \item Better path to certification and manufacturing than SBC
+\end{itemize}
+
+\textbf{Cons}
+\begin{itemize}
+  \item More engineering than SBC
+  \item Vendor lock-in considerations
+\end{itemize}
+\end{frame}
+
+% ---------------- Slide 9 ----------------
+\begin{frame}{Alternative \#6: SoC/SiP direct-to-board (full custom)}
+\textbf{What it is:} place the SoC + DDR + PMIC yourself
+\vspace{0.6em}
+
+\textbf{Pros}
+\begin{itemize}
+  \item Lowest unit cost at scale, full control of design
+\end{itemize}
+
+\textbf{Cons}
+\begin{itemize}
+  \item Highest NRE, hardest layout (DDR), more risk/time
+\end{itemize}
+
+\textbf{Use when:} high volume + strong hardware team + stable requirements.
+\end{frame}
+
+% ---------------- NEW: Slide 10 ----------------
+\begin{frame}{Alternative \#7: FPGA (programmable logic)}
+\textbf{What it is:} Configurable hardware fabric for custom datapaths and I/O.
+\vspace{0.6em}
+
+\textbf{Strengths}
+\begin{itemize}
+  \item Deterministic latency, true parallelism, custom interfaces
+  \item Great for high-speed acquisition (ADC/DAC), framing, filtering, pre-processing
+\end{itemize}
+
+\textbf{Trade-offs}
+\begin{itemize}
+  \item Tooling and verification complexity
+  \item Power/cost can rise if over-provisioned
+\end{itemize}
+
+\textbf{Use when:} strict latency/throughput, unusual I/O, streaming pipelines.
+\end{frame}
+
+% ---------------- NEW: Slide 11 ----------------
+\begin{frame}{Alternative \#8: SoC-FPGA (CPU + FPGA on one chip)}
+\textbf{What it is:} Hardened CPU (often ARM) + FPGA fabric + shared memory/DMA.
+\vspace{0.6em}
+
+\textbf{Pros}
+\begin{itemize}
+  \item Best of both: Linux/RTOS control plane + FPGA data plane
+  \item Tight integration (low-latency DMA), fewer chips/boards
+\end{itemize}
+
+\textbf{Cons}
+\begin{itemize}
+  \item Complex partitioning (what runs where) and bring-up
+  \item Vendor ecosystems / toolchains
+\end{itemize}
+
+\textbf{Use when:} you need software flexibility + hardware acceleration in one device.
+\end{frame}
+
+% ---------------- NEW: Slide 12 ----------------
+\begin{frame}{Alternative \#9: ACAP (adaptive compute acceleration platform)}
+\textbf{What it is:} heterogeneous compute (programmable logic + DSP/AI engines + CPUs)
+designed for acceleration workloads.
+\vspace{0.6em}
+
+\textbf{Why it exists}
+\begin{itemize}
+  \item Mix-and-match engines for \textbf{throughput} and \textbf{low latency}
+  \item Better fit for complex pipelines (signal processing, AI inference, networking)
+\end{itemize}
+
+\textbf{Watch-outs}
+\begin{itemize}
+  \item Platform maturity, toolchain learning curve
+  \item Overkill for simple embedded control
+\end{itemize}
+
+\textbf{Use when:} you need multiple accelerators and sustained high performance at the edge.
+\end{frame}
+
+% ---------------- Slide 13 (was 11) ----------------
+\begin{frame}{Which MCU family? (practical buckets)}
+\begin{itemize}
+  \item \textbf{Connectivity-first IoT:} ESP32 class (Wi-Fi/BLE integrated)
+  \item \textbf{Control/industrial ecosystem:} STM32 class
+  \item \textbf{Low-cost general dev:} Arduino ecosystem
+  \item \textbf{Dual-core MCU w/ good tooling:} RP2040 boards
+\end{itemize}
+\end{frame}
+
+% ---------------- Updated decision flow slide ----------------
+\begin{frame}{OS/Platform decision flow (simple)}
+\begin{columns}[T,onlytextwidth]
+  \begin{column}{0.55\textwidth}
+    \begin{enumerate}
+      \item \textbf{Need Linux apps/UI/containers?} $\rightarrow$ Linux (SBC or SoM)
+      \item Else \textbf{hard real-time / many concurrent features?} $\rightarrow$ MCU + RTOS
+      \item Else \textbf{simple + ultra-low power + low cost?} $\rightarrow$ Bare metal MCU
+      \item \textbf{Need strict throughput/latency or custom I/O?} $\rightarrow$ FPGA / SoC-FPGA / ACAP
+    \end{enumerate}
+  \end{column}
+  \begin{column}{0.45\textwidth}
+    \centering
+    \includesvg[width=\linewidth]{figures/decision_flow_fpga_acap}
+    \vspace{0.3em}
+    {\scriptsize Includes acceleration path.}
+  \end{column}
+\end{columns}
+\end{frame}
+
+% ---------------- Slide: Where acceleration fits ----------------
+\begin{frame}{Where FPGA/SoC-FPGA/ACAP fit (data plane vs control plane)}
+\centering
+\includesvg[width=0.92\linewidth]{figures/control_data_plane_fpga_acap}
+\vspace{0.4em}
+
+{\scriptsize Typical split: CPU runs orchestration; fabric/engines run the high-rate pipeline.}
+\end{frame}
+
+% ---------------- Slide  (architecture patterns updated) ----------------
+\begin{frame}{Architecture patterns (how you build it)}
+\begin{columns}[T,onlytextwidth]
+  \begin{column}{0.55\textwidth}
+    \begin{itemize}
+      \item \textbf{Monolith firmware} (small MCU projects)
+      \item \textbf{Layered HAL + drivers + services} (scales better)
+      \item \textbf{RTOS tasks + message queues} (modular + testable)
+      \item \textbf{Linux: services + IPC + OTA pipeline} (maintainable fleets)
+      \item \textbf{CPU control plane + accelerated data plane} (FPGA/ACAP designs)
+    \end{itemize}
+  \end{column}
+  \begin{column}{0.45\textwidth}
+    \centering
+    \includesvg[width=\linewidth]{figures/architecture_patterns_fpga_acap}
+    \vspace{0.3em}
+    {\scriptsize Adds accelerated pipeline pattern.}
+  \end{column}
+\end{columns}
+\end{frame}
+
+% ---------------- Slide ----------------
+\begin{frame}{Risk checklist (what bites later)}
+\begin{itemize}
+  \item Component lifecycle \& second sources
+  \item OTA strategy and secure boot
+  \item Regulatory/certification for radio
+  \item Debug/telemetry in the field
+  \item Production test strategy (fixtures, flashing, calibration)
+  \item \textbf{FPGA/ACAP-specific:} verification, timing closure, bitstream security, field updates
 \end{itemize}
 \end{frame}
