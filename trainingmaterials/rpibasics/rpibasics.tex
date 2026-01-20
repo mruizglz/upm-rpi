@@ -123,9 +123,7 @@
  \end{columns}
 \end{frame}
 
-
-% ---------------- Slide 2 ----------------
-\begin{frame}{What ``embedded'' can mean (spectrum)}
+\begin{frame}{What ``embedded'' can mean}
 \begin{itemize}
   \item \textbf{Ultra-low power control:} coin-cell sensors, simple I/O
   \item \textbf{Connected IoT:} Wi-Fi/BLE + cloud, security updates
@@ -137,9 +135,6 @@
 \end{frame}
 
 
-
-
-% ---------------- Slide 3 ----------------
 \begin{frame}{Key decision criteria}
 \begin{itemize}
   \item \textbf{Real-time needs:} hard/soft deadlines, jitter tolerance
@@ -152,199 +147,6 @@
 \end{itemize}
 \end{frame}
 
-% Design Constraints Slide
-
-\begin{frame}{Embedded Systems II}
-\begin{columns}
-      \begin{column}{0.5\textwidth} 
-          \begin{itemize}
-            \item Typically has a single processor core
-            \item It has memory blocks, digital I/Os, analog I/Os, and communication interfaces.
-            \item  Used for basic data acquisition and control purposes.
-            \item  Implemented using MCUs
-            \item  Integrated into mechanical or electrical systems that need real-time constraints
-          \end{itemize}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-        \includegraphics[width=0.8\textwidth]{trainingmaterials/rpibasics/mcu.pdf}
-        \end{column}
-  \end{columns}
-\end{frame}
-
-\begin{frame}{Alternatives to implement Embedded Devices}
-    \centering
-     \includegraphics[width=\textwidth]{trainingmaterials/rpibasics/alternatives.pdf}
-\end{frame}
-
-\begin{frame}{Benefits of Embedded Devices}
-  \begin{itemize}
-    \item \textbf{Greater performance and efficiency:} More sophisticated control through software.
-    \item \textbf{Lower cost:} Cheaper components. Reduced manufacturing costs. Reduced operating and maintenance costs.
-    \item \textbf{More features:} Many not possible or impractical using other approaches.
-    \item \textbf{Better dependability:} Adaptive systems that can compensate for failures. Better diagnostics to improve repair time.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Functions of Embedded Devices}
-  \begin{itemize}
-    \item \textbf{Closed-loop control system:} Monitor a process, adjust an output to maintain the desired set point of operation (temperature, speed, direction, etc.).
-    \item \textbf{Sequencing:} Step through different stages based on environment and system conditions.
-    \item \textbf{Signal processing:} .Remove noise, select desired signal features.
-    \item \textbf{Communications and networking:} Exchange information reliably and quickly.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Constraints Specific to Embedded Devices}
-  \begin{itemize}
-    \item \textbf{Cost:} Competitive markets penalize products that do not deliver adequate value for money.
-    \item \textbf{Size and Weight:} Mobile (aviation, automotive) and portable (e.g., handheld, wearable) systems.
-    \item \textbf{Power and Energy Limits:} Battery capacity and cooling limits.
-    \item \textbf{Environmental Conditions:} Operates in extreme temperatures.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{The impact of constraints}
-\begin{itemize}
-    \item MCUs used (rather than microprocessors)
-    \begin{itemize}
-        \item Include peripherals to interface with other devices and respond efficiently.
-        \item On-chip RAM and ROM reduce circuit board complexity and cost.
-    \end{itemize}
-    \item Programming language
-    \begin{itemize}
-        \item Programmed in C/C++ rather than in Java, resulting in smaller and faster code, making the MCU less expensive.
-        \item Some performance-critical code may be in Assembly (a lower-level language).
-    \end{itemize}
-    \item Bare-metal \& Operating system (OS)
-    \begin{itemize}
-        \item Bare-metal: Typically, no OS, but instead a simple scheduler, or even just interrupts + main code (foreground/background system).
-        \item If OS used, likely to be a real-time one (RTOS).
-        \item Embedded Linux.
-    \end{itemize}
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}{Embedded software}
-\begin{itemize}
-    \item Software incorporated into/aiming to control machines or devices
-    \item Usually specialized for a specific hardware platform
-    \item Simple, limited memory requirements
-    \item Often does not require OS support $\rightarrow$ firmware
-    \item Subject to timing constraints
-    \item Many control functions not tied to human interaction
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Embedded software constraints}
-\begin{itemize}
-    \item Lack of abstraction: developer directly exposed to underlying hardware
-    \item Responsiveness: system needs to react to external triggers in a timely manner
-    \item Concurrency: multiple physical events happening at the same time must be handled
-    \item Reliability: code errors can have catastrophic events in practice
-    \item Efficiency: given energy \& timing budgets, optimization is required
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Embedded system programming and debugging}
-\begin{itemize}
-    \item Different options to upload/debug code on a microcontroller
-    \item A range of interfaces are used to program embedded systems, including Joint Test Action Group (JTAG), Serial Wire Debug (SWD), Single Wire Interface Module (SWIM), etc.
-    \item Programming consists of writing program code to nonvolatile memory (e.g., Electrically Erasable Programmable Read-Only Memory (EEPROM)) and configuring the system via fuses.
-    \item Configuration bits (fuses) control key behavior of embedded hardware, e.g., clock rate, power-up timer, etc.
-    \item Different debug utilities provided by software tools providers
-\end{itemize}
-\end{frame}
-
-% Embedded System Design with Raspberry Pi Slide
-\section{Designing with Raspberry Pi}
-\begin{frame}{Embedded System Design with Raspberry Pi}
-  \begin{itemize}
-    \item Use an ARM multicore platform
-    \item Use of embedded peripherals
-    \item Sensor interface using I2C
-    \item Use of Embedded Linux as Operating System
-    \item Develop applications in C/C++ with the help of Linux Kernel functionalities
-    \item Develop, debug, and deploy applications using:
-    \begin{itemize}
-        \item GNU tools
-        \item Eclipse Environment
-    \end{itemize}
-\end{itemize}
-\end{frame}
-
-% Market Trends Slide
-
-\section{Market Trends I}
-\begin{frame}{Market Trends I}
-  \begin{itemize}
-    \item \centering \includegraphics[scale=0.5]{trainingmaterials/rpibasics/torizon-hw.png}.
-    \item \includegraphics[scale=0.5]{trainingmaterials/rpibasics/Montavista.png}
-  \end{itemize}
-\end{frame}
-
-
-\begin{frame}{Market Trends II}
-    \begin{itemize}
-        \item Industrial grade Linux
-        \item Powerful features to build state-of-the-art embedded solutions
-        \item Strong focus on Security with container support and services
-        \item Time-saving and cost-efficient application development
-        \item Drivers, connectivity stacks, real-time extensions, support for industrial hardware and graphical development environment
-        \item Engineers support with experience in industrial applications
-    \end{itemize}
-    \begin{itemize}
-        \item \centering \includegraphics[scale=0.15]{trainingmaterials/rpibasics/SYSGO_graphic_elinos_embedded_linux.png}
-    \end{itemize}
-\end{frame}
-
-
-\begin{frame}{Market Trends in Advanced Embedded Systems}
-  \begin{itemize}
-    \item Increasing adoption of AI engines and DSP engines.
-    \item Use of adaptable hardware (e.g., Xilinx Versal, Intel Agilex).
-    \item Embedded Linux plays a critical role in modern systems.
-    \begin{itemize}
-        \item \centering \includegraphics[scale=0.5]{trainingmaterials/rpibasics/xilinxacap.png}
-    \end{itemize}
-  \end{itemize}
-\end{frame}
-
-% Student Research Slide
-\section{Student Research}
-\begin{frame}{Student Research Topics I}
- \begin{itemize}
-    \item What is the architecture of the Raspberry Pi 4 Model B+ core? Is it a 32-bit or 64-bit core?
-    \item What is bare-metal programming?
-    \item What software tools are required to do bare-metal programming?
-    \item What are the advantages/disadvantages of using bare metal programming vs. operating system programming?
-    \item What are the typical compiler and linker used in Linux OS?
-    \item Review the concept of compile and link
-    \item What is a library? What extensions do the library files have?
-    \item What is the purpose of the Linux “make” command?
-    \item What is a Makefile file?
-    \item What do user space and kernel space mean in Linux?
-    \item What is a GPU?
-    \item What are the main advantages of using GPUs?
-    \item What is the typical programming method for developing applications with GPUs?
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}{Student Research Topics II}
- \begin{itemize}
-    \item Identify the steps to compile a program in GNU/Linux using gcc and g++
-    \item What is the purpose of glibc library in GNU/Linux?
-    \item What is the utility to debug C/C++ applications with GNU tools? 
-\end{itemize}
-\end{frame}
-
-
-
-
-
-
-% ---------------- Slide 4 ----------------
 \begin{frame}{Alternative \#1: Bare-metal microcontroller (MCU)}
 \textbf{What it is:} Firmware directly on MCU, no OS
 \vspace{0.6em}
@@ -364,13 +166,14 @@
 \textbf{Use when:} simple control logic, strict power, minimal features.
 \end{frame}
 
-% ---------------- Slide 5 ----------------
+
 \begin{frame}{Alternative \#2: MCU + RTOS}
 \textbf{RTOS options often considered:}
 \begin{itemize}
   \item FreeRTOS
   \item Zephyr
   \item ThreadX / Azure RTOS
+  \item CMSIS-RTOS V2 API
 \end{itemize}
 
 \textbf{Pros}
@@ -386,7 +189,7 @@
 \end{itemize}
 \end{frame}
 
-% ---------------- Slide 6 ----------------
+
 \begin{frame}{Alternative \#3: Embedded Linux on MPU/SoC}
 \textbf{What it is:} Linux on a microprocessor/SoC (often ARM)
 \vspace{0.6em}
@@ -403,10 +206,10 @@
   \item More complexity (kernel, drivers, build systems)
 \end{itemize}
 
-\textbf{Use when:} UI, gateways, heavy networking, complex updates.
+\textbf{Use when:} User Interface, gateways, networking, complex updates.
 \end{frame}
 
-% ---------------- Slide 7 ----------------
+
 \begin{frame}{Alternative \#4: Single-Board Computer (SBC)}
 \textbf{Mindset:} ``ready-to-run Linux board''
 \vspace{0.6em}
@@ -414,7 +217,7 @@
 \textbf{Pros}
 \begin{itemize}
   \item Fast prototyping, lots of I/O and community support
-  \item Lower NRE initially
+  \item Lower Non-Recurrent Engineering (NRE)initially
 \end{itemize}
 
 \textbf{Cons}
@@ -426,7 +229,7 @@
 \textbf{Common for:} prototypes, pilots, internal tools.
 \end{frame}
 
-% ---------------- Slide 8 ----------------
+
 \begin{frame}{Alternative \#5: System-on-Module (SoM) + custom carrier}
 \textbf{What it is:} compute module + your custom carrier board
 \vspace{0.6em}
@@ -444,9 +247,9 @@
 \end{itemize}
 \end{frame}
 
-% ---------------- Slide 9 ----------------
-\begin{frame}{Alternative \#6: SoC/SiP direct-to-board (full custom)}
-\textbf{What it is:} place the SoC + DDR + PMIC yourself
+
+\begin{frame}{Alternative \#6: SoC/SiP(System in Package) direct-to-board (full custom)}
+\textbf{What it is:} place the SoC + DDR + Power management yourself
 \vspace{0.6em}
 
 \textbf{Pros}
@@ -462,18 +265,18 @@
 \textbf{Use when:} high volume + strong hardware team + stable requirements.
 \end{frame}
 
-% ---------------- NEW: Slide 10 ----------------
+
 \begin{frame}{Alternative \#7: FPGA (programmable logic)}
 \textbf{What it is:} Configurable hardware fabric for custom datapaths and I/O.
 \vspace{0.6em}
 
-\textbf{Strengths}
+\textbf{Pros}
 \begin{itemize}
   \item Deterministic latency, true parallelism, custom interfaces
   \item Great for high-speed acquisition (ADC/DAC), framing, filtering, pre-processing
 \end{itemize}
 
-\textbf{Trade-offs}
+\textbf{Cons}
 \begin{itemize}
   \item Tooling and verification complexity
   \item Power/cost can rise if over-provisioned
@@ -482,7 +285,7 @@
 \textbf{Use when:} strict latency/throughput, unusual I/O, streaming pipelines.
 \end{frame}
 
-% ---------------- NEW: Slide 11 ----------------
+
 \begin{frame}{Alternative \#8: SoC-FPGA (CPU + FPGA on one chip)}
 \textbf{What it is:} Hardened CPU (often ARM) + FPGA fabric + shared memory/DMA.
 \vspace{0.6em}
@@ -502,19 +305,19 @@
 \textbf{Use when:} you need software flexibility + hardware acceleration in one device.
 \end{frame}
 
-% ---------------- NEW: Slide 12 ----------------
+
 \begin{frame}{Alternative \#9: ACAP (adaptive compute acceleration platform)}
 \textbf{What it is:} heterogeneous compute (programmable logic + DSP/AI engines + CPUs)
 designed for acceleration workloads.
 \vspace{0.6em}
 
-\textbf{Why it exists}
+\textbf{Pros}
 \begin{itemize}
   \item Mix-and-match engines for \textbf{throughput} and \textbf{low latency}
   \item Better fit for complex pipelines (signal processing, AI inference, networking)
 \end{itemize}
 
-\textbf{Watch-outs}
+\textbf{Cons}
 \begin{itemize}
   \item Platform maturity, toolchain learning curve
   \item Overkill for simple embedded control
@@ -523,15 +326,6 @@ designed for acceleration workloads.
 \textbf{Use when:} you need multiple accelerators and sustained high performance at the edge.
 \end{frame}
 
-% ---------------- Slide 13 (was 11) ----------------
-\begin{frame}{Which MCU family? (practical buckets)}
-\begin{itemize}
-  \item \textbf{Connectivity-first IoT:} ESP32 class (Wi-Fi/BLE integrated)
-  \item \textbf{Control/industrial ecosystem:} STM32 class
-  \item \textbf{Low-cost general dev:} Arduino ecosystem
-  \item \textbf{Dual-core MCU w/ good tooling:} RP2040 boards
-\end{itemize}
-\end{frame}
 
 % % ---------------- Updated decision flow slide ----------------
 % \begin{frame}{OS/Platform decision flow (simple)}
@@ -594,3 +388,98 @@ designed for acceleration workloads.
 %   \item \textbf{FPGA/ACAP-specific:} verification, timing closure, bitstream security, field updates
 % \end{itemize}
 % \end{frame}
+
+
+% Design Constraints Slide
+
+
+
+
+
+% Embedded System Design with Raspberry Pi Slide
+\section{Designing with Raspberry Pi}
+\begin{frame}{Embedded System Design with Raspberry Pi}
+  \begin{itemize}
+    \item Use an ARM multicore platform
+    \item Use of embedded peripherals
+    \item Sensor interface using I2C
+    \item Use of Embedded Linux as Operating System
+    \item Develop applications in C/C++ with the help of Linux Kernel functionalities
+    \item Develop, debug, and deploy applications using:
+    \begin{itemize}
+        \item GNU tools
+        \item Eclipse Environment and/or Visual Code
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+% Market Trends Slide
+
+\section{Market Trends}
+\begin{frame}{Market Trends I}
+  \begin{itemize}
+    \item \centering \includegraphics[scale=0.5]{trainingmaterials/rpibasics/torizon-hw.png}.
+    \item \includegraphics[scale=0.5]{trainingmaterials/rpibasics/Montavista.png}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Market Trends II}
+    \begin{itemize}
+        \item Industrial grade Linux
+        \item Powerful features to build state-of-the-art embedded solutions
+        \item Strong focus on Security with container support and services
+        \item Time-saving and cost-efficient application development
+        \item Drivers, connectivity stacks, real-time extensions, support for industrial hardware and graphical development environment
+        \item Engineers support with experience in industrial applications
+    \end{itemize}
+    \begin{itemize}
+        \item \centering \includegraphics[scale=0.15]{trainingmaterials/rpibasics/SYSGO_graphic_elinos_embedded_linux.png}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Market Trends in Advanced Embedded Systems}
+  \begin{itemize}
+    \item Increasing adoption of AI engines and DSP engines.
+    \item Use of adaptable hardware (e.g., Xilinx Versal, Intel Agilex).
+    \item Embedded Linux plays a critical role in modern systems.
+    \begin{itemize}
+        \item \centering \includegraphics[scale=0.5]{trainingmaterials/rpibasics/xilinxacap.png}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+% Student Research Slide
+\section{Student Research}
+\begin{frame}{Student Research Topics I}
+ Research about these questions and prepare a report (you have to submit it to moodle)
+ \begin{itemize}
+    \item What is the architecture of the Raspberry Pi 4 Model B+ core? Is it a 32-bit or 64-bit core?
+    \item What is bare-metal programming?
+    \item What software tools are required for bare-metal programming?
+    \item What are the advantages/disadvantages of using bare metal programming vs. operating system programming?
+    \item What are the typical compilers and linkers used in Linux OS?
+    \item Review the concepts of compile and link. Could you explain the difference among a compile, link and execution error? Give an example.
+    \item What is a library? What extensions do the libraries files have?
+    \item What is the purpose of the Linux “make” command?
+    \item What is a Makefile file?
+    \item What do user space and kernel space mean in Linux?
+    
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Student Research Topics II}
+ \begin{itemize}
+    \item Identify the steps to compile a program in GNU/Linux using gcc and g++
+    \item What is the purpose of glibc library in GNU/Linux?
+    \item What is the utility to debug C/C++ applications with GNU tools? 
+    \item What is a GPU?
+    \item What are the main advantages of using GPUs?
+    \item What is the typical programming method for developing applications with GPUs?
+    \item Identify the most common Linux Distributions. What are the differences among them?
+\end{itemize}
+\end{frame}
+
+
+
